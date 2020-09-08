@@ -1,0 +1,19 @@
+version: '3'
+services:
+  node:
+    build: ./microservice-node-react/server
+    ports:
+      - "3001:3001"
+    entrypoint: ['node', 'server.js']
+    volumes:
+      - ./microservice-node-react/server:/service
+      - /service/node_modules
+  react-web-client:
+    build: ./microservice-node-react/client
+    ports:
+      - "80:80"
+    entrypoint: ['npm', 'start']
+    volumes:
+      - ./microservice-node-react/client:/service
+      - /service/node_modules
+
