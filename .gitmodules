@@ -1,0 +1,8 @@
+[submodule "microservice-nginx"]
+	path = microservice-nginx
+	url = https://github.com/samhamra/microservice-nginx
+	branch = master
+[submodule "microservice-node-react"]
+	path = microservice-node-react
+	url = https://github.com/samhamra/microservice-node-react.git
+	branch = master
