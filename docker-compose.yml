@@ -1,6 +1,6 @@
 version: '3'
 services:
-  node:
+  nodejs:
     build: ./microservice-node-react/server
     ports:
       - "3001:3001"
@@ -8,12 +8,19 @@ services:
     volumes:
       - ./microservice-node-react/server:/service
       - /service/node_modules
-  react-web-client:
+  webclient:
     build: ./microservice-node-react/client
     ports:
-      - "80:80"
+      - "8081:80"
     entrypoint: ['npm', 'start']
     volumes:
       - ./microservice-node-react/client:/service
       - /service/node_modules
+  nginx: 
+    build: ./microservice-nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - webclient
+
 
