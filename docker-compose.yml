@@ -1,5 +1,17 @@
-version: '3'
+version: '3.7'
 services:
+  jenkins:      
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - "50000:50000"
+      - "9000:8080"
+    container_name: jenkins
+    volumes:
+      - ./jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
   nodejs:
     build: ./microservice-node-react/server
     ports:
@@ -22,5 +34,4 @@ services:
       - "80:80"
     depends_on:
       - webclient
-
-
+      - jenkins
