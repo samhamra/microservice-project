@@ -16,7 +16,6 @@ services:
     build: ./microservice-node-react/server
     ports:
       - "3001:3001"
-    entrypoint: ['node', 'server.js']
     volumes:
       - ./microservice-node-react/server:/service
       - /service/node_modules
@@ -24,7 +23,6 @@ services:
     build: ./microservice-node-react/client
     ports:
       - "8081:80"
-    entrypoint: ['npm', 'start']
     volumes:
       - ./microservice-node-react/client:/service
       - /service/node_modules
