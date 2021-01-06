@@ -3,28 +3,27 @@ services:
   jenkins:      
     build: ./
     privileged: true
-    user: root
     ports:
       - "50000:50000"
       - "9000:8080"
     container_name: jenkins
     volumes:
       - ./jenkins:/var/jenkins_home
+      - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker:/usr/local/bin/docker
   nodejs:
-    build: ./microservice-node-react/server
+    build: ./microservice-node
     ports:
       - "3001:3001"
     volumes:
-      - ./microservice-node-react/server:/service
+      - ./microservice-node:/service
       - /service/node_modules
   webclient:
-    build: ./microservice-node-react/client
+    build: ./microservice-react
     ports:
       - "8081:80"
     volumes:
-      - ./microservice-node-react/client:/service
+      - ./microservice-react:/service
       - /service/node_modules
   nginx: 
     build: ./microservice-nginx
