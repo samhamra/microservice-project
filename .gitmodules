@@ -6,3 +6,6 @@
 	path = microservice-node-react
 	url = https://github.com/samhamra/microservice-node-react.git
 	branch = master
+[submodule "microservice-jenkins"]
+	path = microservice-jenkins
+	url = https://github.com/samhamra/microservice-jenkins.git

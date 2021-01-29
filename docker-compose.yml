@@ -1,14 +1,14 @@
 version: '3.7'
 services:
   jenkins:      
-    build: ./
+    build: ./microservice-jenkins 
     privileged: true
     ports:
       - "50000:50000"
       - "9000:8080"
     container_name: jenkins
     volumes:
-      - ./jenkins:/var/jenkins_home
+      - ./microservice-jenkins/jenkins:/var/jenkins_home
       - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
   nodejs:
