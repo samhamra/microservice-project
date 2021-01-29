@@ -9,3 +9,9 @@
 [submodule "microservice-jenkins"]
 	path = microservice-jenkins
 	url = https://github.com/samhamra/microservice-jenkins.git
+[submodule "microservice-node"]
+	path = microservice-node
+	url = https://github.com/samhamra/microservice-node
+[submodule "microservice-react"]
+	path = microservice-react
+	url = https://github.com/samhamra/microservice-react
